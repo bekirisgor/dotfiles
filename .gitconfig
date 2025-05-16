@@ -7,3 +7,5 @@
 	autoSetupRemote = true
 [init]
 	templateDir = /Users/bekirisgor/.git-templates
+[commit]
+	template = /Users/bekirisgor/.gitmessage
