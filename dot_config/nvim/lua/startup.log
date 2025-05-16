@@ -1,0 +1,136 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.007  000.007: --- NVIM STARTING ---
+000.540  000.533: locale set
+014.833  014.293: inits 1
+014.862  000.029: window checked
+014.865  000.003: parsing arguments
+015.506  000.642: init lua interpreter
+015.644  000.137: expanding arguments
+015.719  000.075: inits 2
+016.166  000.447: init highlight
+016.167  000.001: waiting for UI
+018.476  002.309: done waiting for UI
+018.492  000.016: init screen for UI
+018.527  000.035: init default mappings
+018.578  000.051: init default autocommands
+020.287  000.070  000.070: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/ftplugin.vim
+020.586  000.033  000.033: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/indent.vim
+025.513  000.078  000.078: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/syntax/synload.vim
+025.950  000.050  000.050: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/filetype.lua
+031.269  000.012  000.012: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/LuaSnip/ftdetect/snippets.vim
+031.478  000.018  000.018: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/typescript-vim/ftdetect/typescript.vim
+031.577  000.010  000.010: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-fugitive/ftdetect/fugitive.vim
+031.763  000.107  000.107: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-go/ftdetect/gofiletype.vim
+031.859  000.021  000.021: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-graphql/ftdetect/graphql.vim
+032.343  006.304  006.137: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/filetype.vim
+033.467  000.661  000.661: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/scripts.vim
+033.524  008.344  001.250: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/syntax/syntax.vim
+092.421  001.519  001.519: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.lua
+092.862  072.132  062.268: sourcing /Users/bekirisgor/.config/nvim/init.lua
+092.916  002.103: sourcing vimrc file(s)
+094.084  000.016  000.016: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/gzip.vim
+094.114  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/health.vim
+094.179  000.041  000.041: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/man.vim
+094.210  000.008  000.008: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/matchit.vim
+094.320  000.088  000.088: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/matchparen.vim
+094.352  000.010  000.010: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/netrwPlugin.vim
+094.469  000.005  000.005: sourcing /Users/bekirisgor/.local/share/nvim/rplugin.vim
+094.472  000.099  000.094: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/rplugin.vim
+094.536  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/shada.vim
+094.566  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/spellfile.vim
+094.598  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/tarPlugin.vim
+094.626  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/tohtml.vim
+094.661  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/tutor.vim
+094.691  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/plugin/zipPlugin.vim
+095.124  000.334  000.334: sourcing /Users/bekirisgor/.config/nvim/plugin/packer_compiled.lua
+095.480  001.872: loading rtp plugins
+098.042  001.833  001.833: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/Comment.nvim/plugin/Comment.lua
+098.429  000.103  000.103: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/hop/plugin/hop.vim
+098.890  000.185  000.185: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/lspsaga.nvim/plugin/lspsaga.lua
+099.140  000.102  000.102: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+099.715  000.415  000.415: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/neogit/plugin/neogit.vim
+100.299  000.328  000.328: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+100.424  000.016  000.016: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua/plugin/colorizer.vim
+100.727  000.088  000.088: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.lua
+101.765  000.821  000.821: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+102.248  000.379  000.379: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context/plugin/treesitter-context.vim
+102.545  000.115  000.115: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring/plugin/ts_context_commentstring.vim
+102.728  000.018  000.018: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+102.946  000.017  000.017: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+103.163  000.011  000.011: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim/plugin/symbols-outline.vim
+103.677  000.206  000.206: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+104.471  000.553  000.553: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+105.003  000.218  000.218: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-go/autoload/go/config.vim
+105.428  000.214  000.214: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-go/autoload/go/util.vim
+105.438  000.801  000.368: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-go/plugin/go.vim
+105.735  000.047  000.047: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+106.108  000.213  000.213: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+106.229  004.499: loading packages
+107.053  000.411  000.411: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+107.175  000.029  000.029: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+107.430  000.166  000.166: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help/after/plugin/cmp_nvim_lsp_signature_help.lua
+107.696  000.178  000.178: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+107.942  000.156  000.156: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+107.979  000.810: loading after plugins
+107.985  000.006: inits 3
+108.340  000.355: reading ShaDa
+109.045  000.705: opening buffers
+114.541  005.496: BufEnter autocommands
+114.543  000.002: editing files in windows
+114.692  000.149: VimEnter autocommands
+114.693  000.001: UIEnter autocommands
+114.947  000.118  000.118: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/autoload/provider/clipboard.vim
+114.950  000.139: before starting main loop
+1142.065  1027.115: first screen update
+1142.069  000.004: --- NVIM STARTED ---
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.008  000.008: --- NVIM STARTING ---
+000.517  000.510: locale set
+014.778  014.261: inits 1
+014.802  000.024: window checked
+014.805  000.003: parsing arguments
+015.406  000.602: init lua interpreter
+015.538  000.132: expanding arguments
+015.581  000.042: inits 2
+016.029  000.449: init highlight
+016.030  000.001: waiting for UI
+019.589  003.559: done waiting for UI
+019.605  000.016: init screen for UI
+019.638  000.033: init default mappings
+019.688  000.050: init default autocommands
+023.006  000.373  000.373: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/ftplugin.vim
+023.598  000.311  000.311: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/indent.vim
+031.495  000.258  000.258: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/syntax/synload.vim
+032.097  000.218  000.218: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/filetype.lua
+037.595  000.129  000.129: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/LuaSnip/ftdetect/snippets.vim
+038.422  000.137  000.137: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/typescript-vim/ftdetect/typescript.vim
+038.855  000.122  000.122: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-fugitive/ftdetect/fugitive.vim
+039.359  000.219  000.219: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-go/ftdetect/gofiletype.vim
+039.789  000.153  000.153: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/vim-graphql/ftdetect/graphql.vim
+040.219  008.072  007.312: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/filetype.vim
+041.314  000.666  000.666: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/scripts.vim
+041.375  010.613  001.400: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/syntax/syntax.vim
+116.098  002.589  002.589: sourcing /Users/bekirisgor/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.lua
+116.469  092.711  079.509: sourcing /Users/bekirisgor/.config/nvim/init.lua
+116.536  003.453: sourcing vimrc file(s)
+116.545  000.009: inits 3
+117.336  000.791: reading ShaDa
+117.371  000.034: opening buffers
+117.558  000.188: BufEnter autocommands
+117.560  000.002: editing files in windows
+117.570  000.010: VimEnter autocommands
+117.571  000.001: UIEnter autocommands
+118.122  000.388  000.388: sourcing /opt/homebrew/Cellar/neovim/HEAD-1b75094/share/nvim/runtime/autoload/provider/clipboard.vim
+118.126  000.167: before starting main loop
+1145.395  1027.269: first screen update
+1145.399  000.004: --- NVIM STARTED ---

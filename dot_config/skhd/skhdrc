@@ -1,0 +1,253 @@
+# ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+ctrl + alt + cmd - r : yabai --restart-service
+
+:: passthrough
+cmd + shift - p ; passthrough
+passthrough < cmd + shift - p ; default
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+
+# mirror tree y-axis
+alt - y : yabai -m space --mirror y-axis
+
+# close window
+alt - x : yabai -m window --close
+
+# toggle window parent zoom
+alt - d : yabai -m window --focus mouse && \
+          yabai -m window --toggle zoom-parent
+
+# float / unfloat window and center on screen
+# alt - t : yabai -m window --toggle float;\
+          # yabai -m window --grid 4:4:1:1:2:2
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# # cycle layourts
+# shift + cmd - e : yabai -m space --rotate 90
+
+ctrl + cmd - s : yabai -m space --layout "$(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')"
+
+# alt - p: yabai -m window --focus stack.prev
+# alt - n: yabai -m window --focus stack.next
+#
+# ctrl + shift - right : yabai -m query --spaces --space \
+#   | jq -re ".index" \
+#   | xargs -I{} yabai -m query --windows --space {} \
+#   | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.x, .id) | reverse | nth(index(map(select(.focused == 1))) - 1).id" \
+#   | xargs -I{} yabai -m window --focus {}
+#
+# # backward
+# ctrl + shift - left: yabai -m query --spaces --space \
+#   | jq -re ".index" \
+#   | xargs -I{} yabai -m query --windows --space {} \
+#   | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
+#   | xargs -I{} yabai -m window --focus {}
+#
+alt + shift - 1 : yabai -m window --space  1; 
+alt + shift - 2 : yabai -m window --space  2;
+alt + shift - 3 : yabai -m window --space  3; 
+alt + shift - 4 : yabai -m window --space  4; 
+alt + shift - 5 : yabai -m window --space  5; 
+alt + shift - 6 : yabai -m window --space  6; 
+alt + shift - 7 : yabai -m window --space  7; 
+alt + shift - 8 : yabai -m window --space  8; 
+alt + shift - 9 : yabai -m window --space  9; 
+alt + shift - 0 : yabai -m window --space 10; 
+
+alt + shift - p : yabai -m window --focus mouse && \
+					yabai -m window --space next
+alt + shift - n : yabai -m window --focus mouse && \
+					yabai -m window --space prev
+
+# delete focused space
+alt - w : yabai -m space --destroy
+
+## Navigation
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# Moving windows
+shift + alt - h : yabai -m window --warp west
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - l : yabai -m window --warp east
+
+
+# Resize windows
+ctrl + alt - h : \
+    yabai -m window --resize left:-100:0 ; \
+    yabai -m window --resize right:-100:0
+
+ctrl + alt - j : \
+    yabai -m window --resize bottom:0:100 ; \
+    yabai -m window --resize top:0:100
+
+ctrl + alt - k : \
+    yabai -m window --resize top:0:-100 ; \
+    yabai -m window --resize bottom:0:-100
+
+ctrl + alt - l : \
+    yabai -m window --resize right:100:0 ; \
+    yabai -m window --resize left:100:0
+
+# Float and center window
+shift + alt - c : yabai -m window --toggle float;\
+                yabai -m window --grid 12:12:1:1:10:10
+
+# Set insertion point for focused container
+shift + ctrl + alt - h : yabai -m window --insert west
+shift + ctrl + alt - j : yabai -m window --insert south
+shift + ctrl + alt - k : yabai -m window --insert north
+shift + ctrl + alt - l : yabai -m window --insert east
+
+# Float / Unfloat window
+shift + alt - space : yabai -m window --toggle float
+
+# Change desktop
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+
+alt - n : yabai -m space --focus prev
+alt - p : yabai -m space --focus next
+
+ctrl + alt - left: yabai -m space --focus prev
+ctrl + alt - right: yabai -m space --focus next
+
+
+
+# # create new space + throw + focus
+# shift + alt - n : yabai -m space --create \
+# 	&& wid="$(yabai -m query --windows --window | jq -r '.id')" \
+# 	&& sidx="$(yabai -m query --spaces --display | jq -r 'map(select(."is-native-fullscreen" == false))[-1].index')" \
+# 	&& yabai -m window "${wid}" --space "${sidx}" \
+#   && yabai -m space --focus "${sidx}"
+#
+# # create new space + throw app and dont focus
+# alt - n : yabai -m space --create \
+# 	&& wid="$(yabai -m query --windows --window | jq -r '.id')" \
+# 	&& sidx="$(yabai -m query --spaces --display | jq -r 'map(select(."is-native-fullscreen" == false))[-1].index')" \
+# 	&& yabai -m window "${wid}" --space "${sidx}"
+
+ # create new space
+alt - t : yabai -m space --create; sketchybar --trigger space_change
+
+ # create new space and focus
+ lctrl + cmd - n : yabai -m space --create \
+ 	&& sidx="$(yabai -m query --spaces --display | jq -r 'map(select(."is-native-fullscreen" == false))[-1].index')" \
+   && yabai -m space --focus "${sidx}"
+
+ # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+ shift + cmd - j : yabai -m space --create && \
+ 				index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+ 				yabai -m window --space "${index}" && \
+ 				yabai -m space --focus "${index}"
+
+ #similar to above, but to the left
+ shift + cmd - k : yabai -m space --create && \
+ 					index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+           yabai -m space "${index}" --move 1 && \
+           yabai -m window --space 1 && \
+           yabai -m space --focus 1
+#
+# ##################################################################################
+# # My configs
+# ##################################################################################
+#
+# # reload yabai
+# shift + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+#
+# # directional navigation
+# ctrl + cmd - h : yabai -m window --focus west
+# ctrl + cmd - l : yabai -m window --focus east
+# ctrl + cmd - j : yabai -m window --focus south
+# ctrl + cmd - k : yabai -m window --focus north
+#
+# # directional swap
+# ctrl + alt - h : yabai -m window --swap west
+# ctrl + alt - l : yabai -m window --swap east
+# ctrl + alt - j : yabai -m window --swap south
+# ctrl + alt - k : yabai -m window --swap north
+#
+# # directional movement
+# cmd + alt - h : yabai -m window --warp west
+# cmd + alt - l : yabai -m window --warp east
+# cmd + alt - j : yabai -m window --warp south
+# cmd + alt - k : yabai -m window --warp north
+#
+# # move window to next(n) space
+# ctrl + cmd - n : yabai -m window --space next; yabai -m space --focus next
+#
+# # move window back to prev(p) space
+# ctrl + cmd - p : yabai -m window --space prev; yabai -m space --focus prev
+#
+# # cycle layourts
+# shift + cmd - c : yabai -m space --rotate 270
+#
+# # move mission-control index left/right (replaced by native keyboard shortcuts)
+# # shift + cmd - h : yabai -m space --focus prev
+# # shift + cmd - l : yabai -m space --focus next
+#
+# # toggle fullscreen or split
+# ctrl + cmd - f : yabai -m window --toggle native-fullscreen
+# ctrl + cmd - s : yabai -m window --toggle split && \
+#                   yabai -m space --balance
+#
+# # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+# # shift + cmd - j : yabai -m space --create && \
+# #                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+# #                   yabai -m window --space "${index}" && \
+# #                   yabai -m space --focus "${index}"
+#
+# # similar to above, but to the left
+# # shift + cmd - k : yabai -m space --create && \
+# #                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+# #                   yabai -m space "${index}" --move 1 && \
+# #                   yabai -m window --space 1 && \
+# #                   yabai -m space --focus 1
+#
+# # beam window to numbered space
+# ctrl + cmd - 1 : yabai -m space --focus 1
+# ctrl + cmd - 2 : yabai -m space --focus 2
+# ctrl + cmd - 3 : yabai -m space --focus 3
+# ctrl + cmd - 4 : yabai -m space --focus 4
+# ctrl + cmd - 5 : yabai -m space --focus 5
+# ctrl + cmd - 6 : yabai -m space --focus 6
+#
+# # destroy spaces
+# shift + cmd - w : yabai -m space --destroy
+#
+# # open finder to file storage drive
+# shift + cmd - o : open /Volumes/Zitsh
+#
+# # open apps: terminal(t), browser(b)
+# shift + cmd - b : /Applications/Vivaldi.app/Contents/MacOS/Vivaldi
+# shift + cmd - t : /Applications/Alacritty.app/Contents/MacOS/alacritty
+#
+# # volume contorl
+# shift + cmd - 0 : osascript -e "set volume output muted true"
+# shift + cmd - 9 : osascript -e "set volume output muted false"
+# shift + cmd - 7 : osascript -e "set volume output volume ((output volume of (get volume settings)) - 2)"
+# shift + cmd - 8 : osascript -e "set volume output volume ((output volume of (get volume settings)) + 2)"
+#
+# # mission control with thumbnail (requires cliclick)
+# shift + cmd - m : cliclick -r m:0,0
+#
+# # hide mouse cursor
+# shift + cmd - q : cliclick m:2560,1440
+#
+# # beam apps to their rightful positions
+# ctrl + cmd - b : yabai -m rule --add app=Alacritty space=3 && \
+#                  yabai -m rule --add app=Spotify space=4 && \
+#                  yabai -m rule --add app=WhatsApp space=4

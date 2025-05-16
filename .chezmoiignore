@@ -1,0 +1,9 @@
+# Fish files to ignore
+.config/fish/fish_variables
+.config/fish/fishd.tmp.*
+.config/fish/fish_history
+
+# Any other sensitive files
+**/.DS_Store
+**/*.log
+**/node_modules/
