@@ -20,6 +20,15 @@ mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/Development"
 
+# Install Xcode Command Line Tools if needed
+if ! xcode-select -p &>/dev/null; then
+  echo "🛠️ Installing Xcode Command Line Tools..."
+  xcode-select --install
+  # Wait for the installation to complete
+  echo "Please wait for Xcode Command Line Tools to finish installing and press Enter to continue..."
+  read -r
+fi
+
 # Install Homebrew if not installed
 if ! command -v brew &>/dev/null; then
   echo "🍺 Installing Homebrew..."
@@ -41,6 +50,7 @@ fi
 echo "🛠️ Installing command-line tools..."
 brew install \
   git \
+  gh \
   fish \
   neovim \
   tmux \
@@ -53,7 +63,10 @@ brew install \
   htop \
   btop \
   wget \
-  curl
+  curl \
+  tldr \
+  tree \
+  ncftp
 
 # Install window management tools
 echo "🪟 Installing window management tools..."
@@ -71,17 +84,24 @@ brew install --cask \
   font-iosevka-term-nerd-font \
   font-jetbrains-mono-nerd-font
 
-# Install development tools
-echo "💻 Installing development tools..."
+# Install development tools and languages
+echo "💻 Installing development tools and languages..."
 brew install \
   go \
   node \
   yarn \
   pnpm \
   python \
+  python@3.12 \
+  python@3.13 \
   pyenv \
   uv \
-  ruby
+  pipx \
+  ruby \
+  rye \
+  sqlite \
+  redis \
+  postgresql@15
 
 # Install Rust if not already installed
 if ! command -v rustc &>/dev/null; then
@@ -100,11 +120,30 @@ brew install \
   docker-compose \
   kubernetes-cli
 
+# Install applications
+echo "📱 Installing applications..."
+brew install --cask \
+  google-chrome \
+  spotify \
+  discord \
+  whatsapp \
+  postman \
+  visual-studio-code \
+  cyberduck \
+  iterm2 \
+  rectangle \
+  lm-studio \
+  alfred \
+  notion \
+  slack
+
 # Install global npm packages
 echo "📦 Installing global npm packages..."
 npm install -g \
   typescript \
-  typescript-language-server
+  typescript-language-server \
+  eslint \
+  prettier
 
 # Install cargo packages
 echo "📦 Installing cargo packages..."
@@ -112,8 +151,31 @@ cargo install \
   code2prompt \
   ratisui
 
+# Install database management tools
+echo "🗄️ Installing database tools..."
+brew install --cask redis-insight
+
+# Install Claude CLI
+echo "🤖 Installing Claude CLI..."
+brew install claude
+
 # Configure macOS
 echo "⚙️ Configuring macOS settings..."
+
+# General UI/UX
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Keyboard settings
 # Faster key repeat
@@ -122,6 +184,11 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Trackpad: enable tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Dock settings
 # Auto-hide the Dock
@@ -132,6 +199,8 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 # Set the icon size of Dock items
 defaults write com.apple.dock tilesize -int 48
+# Minimize windows into their application's icon
+defaults write com.apple.dock minimize-to-application -bool true
 
 # Finder settings
 # Show all filename extensions
@@ -142,10 +211,18 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+# Show the ~/Library folder
+chflags nohidden ~/Library
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+# Screenshots: save to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
 # Restart affected applications
-killall Dock
-killall Finder
+for app in "Dock" "Finder" "SystemUIServer"; do
+  killall "${app}" > /dev/null 2>&1 || true
+done
 
 # Setup Chezmoi
 echo "🔄 Setting up dotfiles with Chezmoi..."
@@ -168,5 +245,13 @@ echo "🔄 Starting services..."
 brew services start yabai
 brew services start skhd
 brew services start sketchybar
+brew services start redis
+brew services start postgresql@15
 
-echo "✅ Installation complete! Please restart your terminal."
+# Create Colima VM for Docker
+if ! colima ls 2>/dev/null | grep -q "Running"; then
+  echo "🐳 Setting up Colima for Docker..."
+  colima start --cpu 4 --memory 8 --disk 20
+fi
+
+echo "✅ Installation complete! Please restart your system to ensure all changes take effect."
