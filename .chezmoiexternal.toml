@@ -1,0 +1,50 @@
+# External configuration for Chezmoi
+# This maps actual source files to their display in the Git repo
+
+[".gitconfig"]
+    type = "file"
+    path = "home/.gitconfig"
+    
+[".tmux.conf"]
+    type = "file"
+    path = "home/.tmux.conf"
+    
+[".tmux"]
+    type = "dir"
+    path = "home/.tmux"
+    
+[".zshrc"]
+    type = "file"
+    path = "home/.zshrc"
+    
+[".config/fish"]
+    type = "dir" 
+    path = "home/.config/fish"
+    
+[".config/nvim"]
+    type = "dir"
+    path = "home/.config/nvim"
+    
+[".config/alacritty"]
+    type = "dir"
+    path = "home/.config/alacritty"
+    
+[".config/yabai"]
+    type = "dir"
+    path = "home/.config/yabai"
+    
+[".config/skhd"]
+    type = "dir"
+    path = "home/.config/skhd"
+    
+[".config/sketchybar"]
+    type = "dir"
+    path = "home/.config/sketchybar"
+    
+[".config/git"]
+    type = "dir"
+    path = "home/.config/git"
+    
+[".claude"]
+    type = "dir"
+    path = "home/.claude"
