@@ -128,14 +128,7 @@ brew install --cask \
   discord \
   whatsapp \
   postman \
-  visual-studio-code \
-  cyberduck \
-  iterm2 \
-  rectangle \
-  lm-studio \
-  alfred \
-  notion \
-  slack
+  visual-studio-code
 
 # Install global npm packages
 echo "📦 Installing global npm packages..."
@@ -177,6 +170,19 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
+# Set interface to dark mode
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+# Always show scrollbars
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+# Disable menu bar transparency
+defaults write NSGlobalDomain AppleReduceDesktopTinting -bool false
+# Hide menu bar
+defaults write NSGlobalDomain "_HIHideMenuBar" -bool true
+
+# Language and locale settings
+defaults write NSGlobalDomain AppleLanguages -array "en-TR" "tr-TR"
+defaults write NSGlobalDomain AppleLocale -string "en_TR"
+
 # Keyboard settings
 # Faster key repeat
 defaults write NSGlobalDomain KeyRepeat -int 2
@@ -184,8 +190,23 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+# Set function keys to standard function keys
+defaults write NSGlobalDomain "com.apple.keyboard.fnState" -bool true
 
-# Trackpad: enable tap to click
+# Mouse and trackpad settings
+# Disable mouse acceleration
+defaults write NSGlobalDomain "com.apple.mouse.scaling" -float -1
+# Set scroll wheel speed
+defaults write NSGlobalDomain "com.apple.scrollwheel.scaling" -float 0.3125
+# Set trackpad speed
+defaults write NSGlobalDomain "com.apple.trackpad.scaling" -int 1
+# Set double-click threshold
+defaults write NSGlobalDomain "com.apple.mouse.doubleClickThreshold" -float 0.8
+# Disable force click
+defaults write NSGlobalDomain "com.apple.trackpad.forceClick" -bool false
+# Enable natural scrolling
+defaults write NSGlobalDomain "com.apple.swipescrolldirection" -bool true
+# Enable tap to click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -201,26 +222,81 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock tilesize -int 48
 # Minimize windows into their application's icon
 defaults write com.apple.dock minimize-to-application -bool true
+# Add hot corner for Mission Control (bottom right)
+defaults write com.apple.dock wvous-br-corner -int 1
+defaults write com.apple.dock wvous-br-modifier -int 0
+# Disable launch animation
+defaults write com.apple.dock launchanim -bool false
 
 # Finder settings
 # Show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# Show all hidden files
+defaults write com.apple.finder AppleShowAllFiles YES
 # Show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 # Show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
+# Disable all animations
+defaults write com.apple.finder DisableAllAnimations -bool true
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Show the ~/Library folder
 chflags nohidden ~/Library
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
+# Use list view by default
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Animation and performance optimizations
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write NSGlobalDomain NSScrollAnimationsEnabled -bool false
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write NSGlobalDomain NSScrollViewRubberbanding -bool false
+defaults write NSGlobalDomain NSDocumentRevisionsWindowTransformAnimation -bool false
+defaults write NSGlobalDomain NSToolbarFullScreenAnimationDuration -float 0
+defaults write NSGlobalDomain NSBrowserColumnAnimationSpeedMultiplier -float 0
+defaults write NSGlobalDomain QLPanelAnimationDuration -float 0
+
+# Mission Control animations
+defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write com.apple.dock springboard-show-duration -float 0
+defaults write com.apple.dock springboard-hide-duration -float 0
+defaults write com.apple.dock springboard-page-duration -float 0
+
+# Mail animations
+defaults write com.apple.Mail DisableSendAnimations -bool true
+defaults write com.apple.Mail DisableReplyAnimations -bool true
+
+# Disable text autocorrection, substitution, and completion
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticTextCompletionEnabled -bool false
+defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
+
+# File management
+defaults write NSGlobalDomain "com.apple.springing.enabled" -bool false
+defaults write NSGlobalDomain "com.apple.springing.delay" -float 0.5
+
+# Sound
+defaults write NSGlobalDomain "com.apple.sound.beep.volume" -float 0.4540837
+defaults write NSGlobalDomain "com.apple.sound.beep.flash" -bool false
 
 # Screenshots: save to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
+# Privacy: don't send new file warning to Apple
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Avoid creating .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 # Restart affected applications
-for app in "Dock" "Finder" "SystemUIServer"; do
+for app in "Dock" "Finder" "Mail" "SystemUIServer"; do
   killall "${app}" > /dev/null 2>&1 || true
 done
 
