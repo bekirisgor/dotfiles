@@ -1,0 +1,11 @@
+[user]
+	name = bekirisgor
+	email = bekirisgor@gmail.com
+[help]
+	autocorrect = 10
+[push]
+	autoSetupRemote = true
+[init]
+	templateDir = /Users/bekirisgor/.git-templates
+[commit]
+	template = /Users/bekirisgor/.gitmessage

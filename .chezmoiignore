@@ -1,0 +1,22 @@
+# Files to ignore when applying dotfiles
+README.md
+LICENSE
+.git/
+.gitignore
+.github/
+install.sh
+.chezmoi.toml
+
+# Sensitive files
+.ssh/id_*
+.ssh/*.pem
+.ssh/known_hosts*
+.gnupg/
+
+# Temporary Files
+**/.DS_Store
+**/*.log
+**/*.swp
+**/*.swo
+**/node_modules/
+**/*.tmp

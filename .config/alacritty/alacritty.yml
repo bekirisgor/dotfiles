@@ -1,0 +1,238 @@
+env:
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: xterm-256color
+
+window:
+  # Spread additional padding evenly around the terminal content.
+  padding:
+    x: 10
+    y: 10
+  # Dimensions if not SimpleFullscreen
+  opacity: 1
+
+  # Window decorations
+  #
+  # Available values:
+  # - full: borders and title bar
+  # - none: neither borders nor title bar
+  # - transparent: title bar, transparent background and title bar buttons
+  # - buttonless: title bar, transparent background, but no title bar buttons
+  decorations: buttonless
+  # startup_mode: SimpleFullscreen
+
+  dimensions:
+    columns: 140
+    lines: 38
+
+shell:
+  program: /opt/homebrew/bin/fish
+#  args:
+#    - --command=tmux attach
+font:
+  normal:
+    family: JetBrainsMono Nerd Font Mono
+    # family: Inconsolata Nerd Font Mono
+    # family: SauceCodePro Nerd Font Mono
+    # family: OperatorMono Nerd Font
+    # family: JetBrainsMono Nerd Font
+    # antialiasing: false
+    style: Regular
+    #   bold:
+    #     family: Source Code Pro
+    #     style: Regular
+    #   italic:
+    #     family: Source Code Pro
+    #     style: Light Italic
+    #   bold_italic:
+    #     family: Source Code Pro
+    #     style: Medium Italic
+  size: 18.0
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+#
+# color_schemes:
+#   macchiato: &macchiato # Default colors
+#     primary:
+#       background: "#0d1117" # base
+#       foreground: "#CAD3F5" # text
+#       # Bright and dim foreground colors
+#       dim_foreground: "#CAD3F5" # text
+#       bright_foreground: "#CAD3F5" # text
+#
+#     # Cursor colors
+#     cursor:
+#       text: "#24273A" # base
+#       cursor: "#F4DBD6" # rosewater
+#     vi_mode_cursor:
+#       text: "#24273A" # base
+#       cursor: "#B7BDF8" # lavender
+#
+#     # Search colors
+#     search:
+#       matches:
+#         foreground: "#24273A" # base
+#         background: "#A5ADCB" # subtext0
+#       focused_match:
+#         foreground: "#24273A" # base
+#         background: "#A6DA95" # green
+#       footer_bar:
+#         foreground: "#24273A" # base
+#         background: "#A5ADCB" # subtext0
+#
+#     # Keyboard regex hints
+#     hints:
+#       start:
+#         foreground: "#24273A" # base
+#         background: "#EED49F" # yellow
+#       end:
+#         foreground: "#24273A" # base
+#         background: "#A5ADCB" # subtext0
+#
+#     # Selection colors
+#     selection:
+#       text: "#24273A" # base
+#       background: "#F4DBD6" # rosewater
+#
+#     # Normal colors
+#     normal:
+#       black: "#494D64" # surface1
+#       red: "#ED8796" # red
+#       green: "#A6DA95" # green
+#       yellow: "#EED49F" # yellow
+#       blue: "#8AADF4" # blue
+#       magenta: "#F5BDE6" # pink
+#       cyan: "#8BD5CA" # teal
+#       white: "#B8C0E0" # subtext1
+#
+#     # Bright colors
+#     bright:
+#       black: "#5B6078" # surface2
+#       red: "#ED8796" # red
+#       green: "#A6DA95" # green
+#       yellow: "#EED49F" # yellow
+#       blue: "#8AADF4" # blue
+#       magenta: "#F5BDE6" # pink
+#       cyan: "#8BD5CA" # teal
+#       white: "#A5ADCB" # subtext0
+#
+#     # Dim colors
+#     dim:
+#       black: "#494D64" # surface1
+#       red: "#ED8796" # red
+#       green: "#A6DA95" # green
+#       yellow: "#EED49F" # yellow
+#       blue: "#8AADF4" # blue
+#       magenta: "#F5BDE6" # pink
+#       cyan: "#8BD5CA" # teal
+#       white: "#B8C0E0" # subtext1
+#
+#     indexed_colors:
+#       - { index: 16, color: "#F5A97F" }
+#       - { index: 17, color: "#F4DBD6" }
+#
+colors:
+  primary:
+    background: '#181616'
+    foreground: '#c5c9c5'
+
+  normal:
+    black:   '#0d0c0c'
+    red:     '#c4746e'
+    green:   '#8a9a7b'
+    yellow:  '#c4b28a'
+    blue:    '#8ba4b0'
+    magenta: '#a292a3'
+    cyan:    '#8ea4a2'
+    white:   '#C8C093'
+
+  bright:
+    black:   '#a6a69c'
+    red:     '#E46876'
+    green:   '#87a987'
+    yellow:  '#E6C384'
+    blue:    '#7FB4CA'
+    magenta: '#938AA9'
+    cyan:    '#7AA89F'
+    white:   '#c5c9c5'
+
+  selection:
+    background: '#2D4F67'
+    foreground: '#C8C093'
+
+  indexed_colors:
+    - { index: 16, color: '#b6927b' }
+    - { index: 17, color: '#b98d7b' }
+    # colors:
+#   *macchiato
+
+  # colors:
+  #   primary:
+  #     background: "0x2c2e34"
+  #     foreground: "0xe2e2e3"
+  #
+  #   normal:
+  #     black: "0x181819"
+  #     red: "0xfc5d7c"
+  #     green: "0x9ed072"
+  #     yellow: "0xe7c664"
+  #     lue: "0x76cce0"
+  #     magenta: "0xb39df3"
+  #     cyan: "0xf39660"
+  #     white: "0xe2e2e3"
+  #
+  #   bright:
+  #     black: "0x7f8490"
+  #     red: "0xfc5d7c"
+  #     green: "0x9ed072"
+  #     yellow: "0xe7c664"
+  #     blue: "0x76cce0"
+  #     magenta: "0xb39df3"
+  #     cyan: "0xf39660"
+  #     white: "0xe2e2e3"
+key_bindings:
+  # Rename the current tmux window
+  - { key: Comma, mods: Command, chars: "\x02\x2c" }
+  - { key: Return, mods: Command, action: ToggleFullscreen }
+
+  # Select a new tmux session for the attached client interactively
+  - { key: K, mods: Command, chars: "\x02\x73" }
+  # Select window 1-9
+  - { key: Key1, mods: Command, chars: "\x02\x31" }
+  - { key: Key2, mods: Command, chars: "\x02\x32" }
+  - { key: Key3, mods: Command, chars: "\x02\x33" }
+  - { key: Key4, mods: Command, chars: "\x02\x34" }
+  - { key: Key5, mods: Command, chars: "\x02\x35" }
+  - { key: Key6, mods: Command, chars: "\x02\x36" }
+  - { key: Key7, mods: Command, chars: "\x02\x37" }
+  - { key: Key8, mods: Command, chars: "\x02\x38" }
+  - { key: Key9, mods: Command, chars: "\x02\x39" }
+  # Switch to last tmux session
+  - { key: L, mods: Command, chars: "\x02\x4c" }
+  - { key: LBracket, mods: Command, chars: "\x02\x5b" }
+  # Change to the previous tmux window
+  - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
+  # Split the current pane into two, left and right
+  - { key: N, mods: Command|Shift, chars: "\x02\x25" }
+  # Split the current pane into two, top and bottom.
+  - { key: N, mods: Command, chars: "\x02\x22" }
+  # Detach the current tmux client
+  - { key: Q, mods: Command, chars: "\x02\x64" }
+  # Change to the next tmux window
+  - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
+  # Type <escape>:w<enter> to save neovim
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
+  # Create a new tmux window
+  - { key: T, mods: Command, chars: "\x02\x63" }
+  # Break the current tmux pane out of the tmux window
+  - { key: T, mods: Command|Shift, chars: "\x02\x21" }
+  # Kill the current tmux pane (and window if last pane)
+  - { key: W, mods: Command, chars: "\x02\x78" }
+  # Toggle the zoom state of the current tmux pane
+  - { key: Z, mods: Command, chars: "\x02\x7a" }
