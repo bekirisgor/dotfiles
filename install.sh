@@ -302,7 +302,7 @@ done
 
 # Setup Chezmoi
 echo "🔄 Setting up dotfiles with Chezmoi..."
-chezmoi init --apply bekirisgor/dotfiles
+chezmoi init --apply bekirisgor/dotfiles-new
 
 # Set Fish as default shell
 if ! grep -q "$(which fish)" /etc/shells; then
